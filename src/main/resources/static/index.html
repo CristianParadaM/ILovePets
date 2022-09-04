@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love Pets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body background="resource/background.jpg">
+        <header id="header">
+            <img id="logo" src="resource/logoilp.png" alt="logoilp">
+
+            <div id="search-bar">
+                <textarea name="text-search" id="text-search" cols="30" rows="10" 
+                placeholder="¿Qué deseas buscar?"></textarea>
+                <a href=""><img id="lupa" src="resource/lupa.png" alt="lupa"></a>
+            </div>
+            <div id="mascota-filter">
+                <span id="mascota-filter-text">Mascota:</span>
+                <div class="dropdown">
+                    <button id="comboboxpet" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img id="mascota-filter-btn" src="resource/btnfiltromascotas.png" alt="btnfiltromascota">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li id="cbperritos"><a class="dropdown-item" href="#"><img class="mascota-filter-btn" src="resource/cbperritos.png" alt="btnfiltromascota"></a></li>
+                        <li id="cbgatitos"><a class="dropdown-item" href="#"><img class="mascota-filter-btn" src="resource/cbgatitos.png" alt="btnfiltromascota"></a></li>
+                        <li id="cbpececitos"><a class="dropdown-item" href="#"><img class="mascota-filter-btn" src="resource/cbpececitos.png" alt="btnfiltromascota"></a></li>
+                        <li id="cbpajaritos"><a class="dropdown-item" href="#"><img class="mascota-filter-btn" src="resource/cbpajaritos.png" alt="btnfiltromascota"></a></li>
+                        <li id="cbmascotas"><a class="dropdown-item" href="#"><img class="mascota-filter-btn" src="resource/cbmascotas.png" alt="btnfiltromascota"></a></li>
+                    </ul>
+                  </div>
+            </div>
+            <div id="carrito-compras">
+                <img id="carrito-compras-btn" src="resource/carritocompras.png" alt="carritocompras">
+            </div>
+            <div id="user-info">
+                <span id="t-user">Cristian David Parada M</span>
+                <img id="t-image" src="resource/fotoperfil.png" alt="fotoperfil">
+            </div>
+        </header>
+        <main id="content">
+            <div id="content-header">
+                <span>Resultados de la busqueda</span>
+                <div id="items-filter">
+                    <button id="items-btnfilter" onclick="cambiar()" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Todos <img id="filter-btn" src="resource/btnfilter.png" alt="">
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="separator"></div>
+            <div class="group-cards">
+                <div class="card-item">
+                    <img width="150" src="resource/cardimg.png" alt="">
+                    <div class="separator"></div>
+                    <span class="card-tittle">Felix<br></span>
+                    <span class="card-description">85gr<br></span>
+                    <span class="card-price">$10.500<br></span>
+                    <span class="card-nameitem">Purina Felix<br></span>
+                    <button class="card-btn-less" type="button">-</button>
+                    <span class="card-nitems">1</span>
+                    <button class="card-btn-max" type="button">+</button>
+                    <br>
+                    <button class="card-btn-add" type="button">Agregar</button>
+                </div>
+               
+                <div class="card-item">
+                    <img width="150" src="resource/cardimg.png" alt="">
+                    <div class="separator"></div>
+                    <span class="card-tittle">Felix<br></span>
+                    <span class="card-description">85gr<br></span>
+                    <span class="card-price">$10.500<br></span>
+                    <span class="card-nameitem">Purina Felix<br></span>
+                    <button class="card-btn-less" type="button">-</button>
+                    <span class="card-nitems">1</span>
+                    <button class="card-btn-max" type="button">+</button>
+                    <br>
+                    <button class="card-btn-add" type="button">Agregar</button>
+                </div>
+            </div>
+            
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
