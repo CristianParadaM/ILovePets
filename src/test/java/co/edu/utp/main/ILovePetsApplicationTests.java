@@ -1,4 +1,4 @@
-package co.edu.utp.ilovepets.main;
+package co.edu.utp.main;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

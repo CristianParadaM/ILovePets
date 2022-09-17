@@ -1,4 +1,4 @@
-package co.edu.utp.ilovepets.main;
+package co.edu.utp.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

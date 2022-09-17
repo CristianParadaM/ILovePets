@@ -1,0 +1,1 @@
+document.getElementById("user-info").addEventListener("click", () => {location.href = "/catalog"});
