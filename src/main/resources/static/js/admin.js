@@ -3,9 +3,26 @@ document.getElementById("addp").addEventListener("click", (event) => {
     document.getElementById("black-curtain").attributes[1].value = "true";
     document.getElementById("add-product-panel").attributes[1].value = "true";
 });
+document.getElementById("modp").addEventListener("click", (event) => {
+    document.getElementById("black-curtain").attributes[1].value = "true";
+    document.getElementById("search-panel").attributes[1].value = "true";
+    document.getElementById("search-title").textContent = "Modificar Productos"
+});
+document.getElementById("remp").addEventListener("click", (event) => {
+    document.getElementById("black-curtain").attributes[1].value = "true";
+    document.getElementById("search-panel").attributes[1].value = "true";
+    document.getElementById("search-title").textContent = "Remover Productos"
+});
 
 function cancelButton(event) {
-    document.getElementById(event.path[6].attributes[0].value).attributes[1].value = 'false';
+    console.log(event)
+    if(event.path[2].attributes[0].value == "search-panel"){
+        event.path[2].attributes[1].value = "false";
+    }else if( event.path[3].attributes[0].value == "search-panel"){
+        event.path[3].attributes[1].value = "false";
+    }else{
+        event.path[6].attributes[1].value = 'false';
+    }
     document.getElementById('black-curtain').attributes[1].value = 'false';
 }
 
@@ -32,14 +49,12 @@ for (let i = 0; i < document.getElementsByClassName("mascota-filter-btn").length
     });
 }
 
-let inputFile = document.getElementById("add-panel-img");
+let inputFile = document.getElementById("input-file-add");
 
 inputFile.addEventListener("change", (event) => {
 
-    console.log("entro")
-
     if(event.path[0].files.length > 0){
-        document.getElementById("myimg").src = URL.createObjectURL(event.path[0].files[0]);
+        document.getElementById("img-add").src = URL.createObjectURL(event.path[0].files[0]);
     }
 
     // fetch("http://localhost:8080/admin/guardar?img="+URL.createObjectURL(event.path[0].files[0]));

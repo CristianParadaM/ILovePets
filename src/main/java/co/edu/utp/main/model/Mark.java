@@ -6,16 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Mark {
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.AUTO)
-    // private int idMark;
-    // @Column(nullable = false, length = 30)
-    // private String name;
-    // @OneToMany
-    // private List<Product> products;
+    private int idMark;
+    private String name;
 }

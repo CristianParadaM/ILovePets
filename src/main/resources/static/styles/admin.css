@@ -157,19 +157,19 @@ body {
 #search-panel{
     position: fixed;
     width: 35%;
-    height: 90%;
+    height: 95%;
     background-color: white;
     border-color: black;
     border-width: 0.4vh;
     border-style: solid;
     border-radius: 20px;
     left: 32.5%;
-    top: 5%;
-    padding: 5px 1.5% 20px 1.5%;
+    top: 2.5%;
+    padding: 5px 1.5% 5px 1.5%;
     box-shadow: 0 0 80px black;
 }
 
-#add-panel-title{
+.panel-title{
     font-size: 2.5vw;
     display: block;
     text-align: center;
@@ -201,17 +201,17 @@ body {
     width: 0px;
 }
 
-#add-panel-containerbtnimg{
+.add-panel-containerbtnimg{
+    display: inline-flex;
     text-align: center;
     width: 11vw;
     height: 11vw;
-    display: block;
     border-color: black;
     border-width: 0.4vh;
     border-style: solid;
 }
 
-#add-panel-containerbtnimg:hover{
+.add-panel-containerbtnimg:hover{
     box-shadow: 0 0 40px orange;
 }
 
@@ -233,9 +233,18 @@ body {
     height: 100%;
 }
 
+#container-desc{
+    margin-right: 3%;
+}
+
 .inline{
     display: inline;
 }
+
+.inline-block{
+    display: inline-block;
+}
+
 .row{
     margin-top: 0px;
     margin-left: 0px;
@@ -273,11 +282,19 @@ body {
     background-color: #F59E29;
 }
 
-.mascota-filter-btn{
+#mascota-filter-btn{
     width: 3vw;
 }
 
-.mascota-filter-btn2{
+.mascota-filter-btn{
+    width: 4vw;
+}
+
+#mascota-filter-btn-2{
+    width: 3vw;
+}
+
+.mascota-filter-btn-2{
     width: 4vw;
 }
 
@@ -293,9 +310,11 @@ body {
 .center{
     text-align: center;
 }
+
 .space{
     margin-bottom: 3%;
 }
+
 .block{
     display: block;
 }
@@ -347,6 +366,23 @@ body {
     margin-top: 2%;
     padding-left: 7%;
     padding-right: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#button-back{
+    color: white;
+    background-color: #FD6F6F;
+    font-size: 1.2vw;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 0.2vh;
+    border-style: solid;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 
@@ -379,6 +415,10 @@ body {
 
 .width-100{
     width: 100%;
+}
+.hspace{
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 #search-desc-id{
