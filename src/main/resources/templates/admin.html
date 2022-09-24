@@ -15,25 +15,24 @@
     <div id="black-curtain" isVisible="false"></div>
     <div id="add-product-panel" isVisible="false" >
         <span class="panel-title">Agregar Productos</span>
-        <form action="/addProduct" method="post" class="container">
+        <form class="container" method="post" th:action="@{/addProduct}" enctype="multipart/form-data">
             <!-- header -->
             <div class="row">
                 <div class="col">
                     <div class="row space">
                         <label class="add-panel-label">Código único (Autogenerado):</label>
-                        <input type="text" name="code" id="input-code" class="add-panel-input" value="20221001"
-                            disabled>
+                        <input type="text" name="input-code" id="input-code" class="add-panel-input" th:value="${idGenerated}">
                     </div>
                     <div class="row space">
                         <label for="input-name" class="add-panel-label">Nombre del producto:</label>
-                        <input type="text" name="name" id="input-name" class="add-panel-input" required
+                        <input type="text" name="namep" id="input-name" class="add-panel-input" required
                             placeholder="Digita el nombre del producto">
                     </div>
                 </div>
                 <div class="col center">
                     <div class="add-panel-containerbtnimg">
                         <label for="input-file-add" class="label-panel-img inline-block"><img src="/resource/noimage.svg" width="9vw" class="myimg" id="img-add" alt=""></label>
-                        <input type="file" name="img" class="add-panel-img" id="input-file-add" accept="image/png,image/jpeg,image/jpg">
+                        <input type="file" name="file" class="add-panel-img" id="input-file-add" accept="image/png,image/jpeg,image/jpg">
                     </div>
                     <label for="input-file-add" class="add-panel-loadimg">Cargar imagen</label>
                 </div>
@@ -73,7 +72,7 @@
                         </div>
                         <div class="col">
                             <input type="text" name="typepet" id="input-typepet" class="add-panel-input center"
-                                placeholder="selecciona el tipo..." required disabled>
+                                placeholder="selecciona el tipo..." required>
                         </div>
                     </div>
                     <div class="row space">
@@ -101,7 +100,6 @@
                     </div>
                 </div>
             </div>
-
         </form>
     </div>
     <div id="search-panel" isVisible="false">
@@ -110,13 +108,13 @@
         <label for="input-id" class="row add-panel-label">Ingrese el código único del producto:</label>
         <input type="text" name="id" id="input-id" class="row add-panel-input">
         <div class="row">
-            <button type="button" id="button-search" class="col space" state="enabled">Buscar</button>
+            <button type="button" id="button-search" class="col space" state="enabled" onclick="searchId()">Buscar</button>
             <button id="button-back" class="col space" onclick="cancelButton(event)" >Atras</button>
         </div>
         
         <!-- content -->
         
-        <form action="/modify" method="get" isVisible="false">
+        <form action="/modify" id="content-search" method="get" isVisible="false">
             <div class="row">
                 <div class="col-md-5">
                     <div class="add-panel-containerbtnimg">
@@ -151,7 +149,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <input type="text" name="id" id="input-typepet-search" class="col add-panel-input" disabled>
+                        <input type="text" name="id" id="input-typepet-search" class="col add-panel-input center" disabled>
                     </div>
                 </div>
             </div>
@@ -177,7 +175,7 @@
 
         <!-- error -->
 
-        <div class="row" isVisible="false">
+        <div class="row" id="error-search" isVisible="false">
             <font class="add-panel-label" color="red">Error:</font>
             <span class="add-panel-label">No se encuentra el producto</span>
         </div>

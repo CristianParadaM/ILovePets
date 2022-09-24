@@ -4,13 +4,23 @@ let sectionGat = document.getElementById("section-gatos");
 let sectionAv = document.getElementById("section-aves");
 let sectionPec = document.getElementById("section-peces");
 
-function chargeTransform(){
+function chargeTransform() {
     for (let index = 0; index < sectionDes.children[1].children.length; index++) {
-        sectionDes.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
-        sectionGat.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
-        sectionAv.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
-        sectionGat.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
-        sectionPec.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        if (sectionDes.children[1].children[index] != undefined) {
+            sectionDes.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        }
+        if (sectionGat.children[1].children[index] != undefined) {
+            sectionGat.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        }
+        if (sectionAv.children[1].children[index] != undefined) {
+            sectionAv.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        }
+        if (sectionPerr.children[1].children[index] != undefined) {
+            sectionPerr.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        }
+        if (sectionPec.children[1].children[index] != undefined) {
+            sectionPec.children[1].children[index].style.transform = "perspective(2500px) rotateY(0)";
+        }
     }
 }
 
@@ -54,16 +64,16 @@ const showDescription = (event) => {
 
     function showDescription(id) {
         let card = document.getElementById(id);
-        if(card.children[card.children.length-1].attributes[1].value == 'false'){
-            for (let i = 0; i < card.children.length-1; i++) {
-                if(card.children[i].attributes.length > 1){
+        if (card.children[card.children.length - 1].attributes[1].value == 'false') {
+            for (let i = 0; i < card.children.length - 1; i++) {
+                if (card.children[i].attributes.length > 1) {
                     card.children[i].attributes[1].value = 'false';
-                }else{
+                } else {
                     card.children[i].attributes[0].value = 'false';
                 }
             }
-            card.children[card.children.length-1].attributes[1].value = "true block";
-        }else{
+            card.children[card.children.length - 1].attributes[1].value = "true block";
+        } else {
             card.children[0].attributes[1].value = 'true inline';
             card.children[1].attributes[1].value = 'true block';
             card.children[2].attributes[1].value = 'true block';
@@ -75,28 +85,28 @@ const showDescription = (event) => {
             card.children[8].attributes[1].value = 'true inline';
             card.children[9].attributes[0].value = 'true inline';
             card.children[10].attributes[1].value = 'true inline';
-            card.children[card.children.length-1].attributes[1].value = "false";
-            
+            card.children[card.children.length - 1].attributes[1].value = "false";
+
         }
     }
 }
 
 document.getElementById("user-info").addEventListener("click", () => {
-    document.getElementById("panel-carrito").attributes[1].value  = "false";
+    document.getElementById("panel-carrito").attributes[1].value = "false";
     if (document.getElementById("panel-login").attributes[1].value == "false") {
         document.getElementById("panel-login").attributes[1].value = "true";
     } else {
-        document.getElementById("panel-login").attributes[1].value  = "false";
+        document.getElementById("panel-login").attributes[1].value = "false";
     }
 });
 
 document.getElementById("carrito-compras").addEventListener("click", () => {
-    document.getElementById("panel-login").attributes[1].value  = "false";
-    if (document.getElementById("panel-carrito").attributes[1].value  == "false") {
-        document.getElementById("panel-carrito").attributes[1].value  = "true";
+    document.getElementById("panel-login").attributes[1].value = "false";
+    if (document.getElementById("panel-carrito").attributes[1].value == "false") {
+        document.getElementById("panel-carrito").attributes[1].value = "true";
         isCarritoOpen = true;
     } else {
-        document.getElementById("panel-carrito").attributes[1].value  = "false";
+        document.getElementById("panel-carrito").attributes[1].value = "false";
     }
 });
 
@@ -128,7 +138,7 @@ document.getElementById("password-text").addEventListener("input", (event) => {
     }
 });
 
-function alert(message, type){
+function alert(message, type) {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
@@ -142,21 +152,22 @@ function alert(message, type){
 const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
 
 function addItemsCard(event) {
-    let number = document.getElementById("card-ni-" + event.path[1].id + "");
+    let number = event.path[1].children[7];
     number.textContent = "" + (parseInt(number.textContent, 10) + 1);
 }
 
 function removeItemsCard(event) {
-    let number = document.getElementById("card-ni-" + event.path[1].id + "");
+    let number = event.path[1].children[7];
     if (parseInt(number.textContent, 10) > 1) {
         number.textContent = "" + (parseInt(number.textContent, 10) - 1);
     }
 }
 
 function addItemsCarrito(event) {
-    let value = document.getElementById("carrito-compras-valor").textContent.replace(",", "");
+    let value = document.getElementById("carrito-compras-valor").textContent.replace(",", "").replace(".", "");
     let valuebef = parseFloat(value.substring(1, value.length));
-    let valueNew = parseFloat((event.path[1].children[4].textContent).substring(1, event.path[1].children[4].textContent.length).replace(",", ""));
+    let index = event.path[1].children[4].children.length-1;
+    let valueNew = parseFloat((event.path[1].children[4].children[index].textContent).replace("$", "").replace(",", "").replace(".", ""));
     valueNew = valueNew * event.path[1].children[7].textContent;
     let burbble = document.getElementById("carrito-burbble-text");
     burbble.textContent = parseInt(burbble.textContent, 10) + parseInt(event.path[1].children[7].textContent, 10);
@@ -167,24 +178,24 @@ function addItemsCarrito(event) {
     document.getElementById("container-carrito").attributes[1].value = "true block";
     document.getElementById("no-items-carrito").attributes[1].value = "false";
 
-    if(isExist(event.path[1].attributes[3].value)){
+    if (isExist(event.path[1].attributes[3].value)) {
         let children = document.getElementById("center-carrito").children;
         for (let i = 0; i < children.length; i++) {
-            if(children[i].attributes[0].value == "item-carrito-"+event.path[1].attributes[3].value){
+            if (children[i].attributes[0].value == "item-carrito-" + event.path[1].attributes[3].value) {
                 let text = children[i].children[2];
-                text.textContent = `x${parseInt(text.textContent.substring(1,text.textContent.length),10)+parseInt(event.path[1].children[7].textContent,10)}`;
+                text.textContent = `x${parseInt(text.textContent.substring(1, text.textContent.length), 10) + parseInt(event.path[1].children[7].textContent, 10)}`;
                 break;
             }
         }
-    }else{
+    } else {
         document.getElementById("center-carrito").innerHTML += `
         <div id="item-carrito-${event.path[1].attributes[3].value}" class="row item-carrito">
             <div class="col">
-                <img src="${event.path[1].children[0].attributes[3].value}" class="img-items-carrito" alt="img-item-carrito">
+                <img src="${event.path[1].children[0].attributes[3].value}" class="img-items-carrito">
             </div>
             <div class="col">
                 <span class="row title-items-carrito">${event.path[1].children[5].textContent}</span>
-                <span class="row price-items-carrito">${event.path[1].children[4].textContent}</span>
+                <span class="row price-items-carrito">${event.path[1].children[4].children[index].textContent}</span>
             </div>
                 <span class="col nitems-carrito">x${event.path[1].children[7].textContent}</span>
                 <button class="btn-items-del center" onClick="removeItemCarrito(event)">X</button>
@@ -195,11 +206,11 @@ function addItemsCarrito(event) {
     }
 
     alert(`Se han agregado al carrito ${event.path[1].children[7].textContent} articulo(s).`, 'success');
-    
-    function isExist(id){
+
+    function isExist(id) {
         let children = document.getElementById("center-carrito").children;
         for (let i = 0; i < children.length; i++) {
-            if(children[i].attributes[0].value == "item-carrito-"+id){
+            if (children[i].attributes[0].value == "item-carrito-" + id) {
                 return true;
             }
         }
@@ -208,36 +219,90 @@ function addItemsCarrito(event) {
 }
 
 function removeItemCarrito(event) {
-    
+
     let nItems = event.path[1].children[2].textContent;
-    nItems = nItems.substring(nItems.length-1,nItems.length);
+    nItems = nItems.substring(nItems.length - 1, nItems.length);
     let idItem = event.path[1].attributes[0].value;
-    document.getElementById(`separator-item-${idItem.substring(idItem.length-1,idItem.length)}`).remove();
+    document.getElementById(`separator-item-${idItem.split("-")[2]}`).remove();
     event.path[1].remove();
 
     let burbble = document.getElementById("carrito-burbble-text");
     burbble.textContent = parseInt(burbble.textContent, 10) - parseInt(nItems, 10);
 
     let valueText = document.getElementById("carrito-compras-valor");
-    let value = valueText.textContent.replace(",", "").replace("$","");
-    
+    let value = valueText.textContent.replace(",", "").replace(".", "").replace("$", "");
+
     let valueItemText = event.path[1].children[1].children[1].textContent;
-    valueItemText = valueItemText.replace("$","").replace(",","");
+    valueItemText = valueItemText.replace("$", "").replace(".", "").replace(",", "");
     valueItemText *= nItems
 
-    valueText.textContent = `${numeral(parseInt(value,10)-parseInt(valueItemText,10)).format('$0,00')}`;
+    valueText.textContent = `${numeral(parseInt(value, 10) - parseInt(valueItemText, 10)).format('$0,00')}`;
 
     let subtotalText = document.getElementById("subtotal-value-carrito");
-    let subtotal = subtotalText.textContent.replace(",", "").replace("$","");
+    let subtotal = subtotalText.textContent.replace(",", "").replace(".", "").replace("$", "");
 
     let totalText = document.getElementById("total-value-carrito");
-    let total = totalText.textContent.replace(",", "").replace("$","");
+    let total = totalText.textContent.replace(",", "").replace("$", "").replace(".", "");
 
-    subtotalText.textContent = `${numeral(parseInt(subtotal,10)-parseInt(valueItemText,10)).format('$0,00')}`;
-    totalText.textContent = `${numeral(parseInt(total,10)-parseInt(valueItemText,10)).format('$0,00')}`;
+    subtotalText.textContent = `${numeral(parseInt(subtotal, 10) - parseInt(valueItemText, 10)).format('$0,00')}`;
+    totalText.textContent = `${numeral(parseInt(total, 10) - parseInt(valueItemText, 10)).format('$0,00')}`;
 
     if (document.getElementById("center-carrito").children.length == 0) {
         document.getElementById("container-carrito").attributes[1].value = "false";
         document.getElementById("no-items-carrito").attributes[1].value = "true block";
     }
+}
+
+function showAllProducts(typeProduct) {
+    fetch("/request?value=" + typeProduct)
+        .then(response => response.text())
+        .then(respuesta => {
+
+            let allProducts = JSON.parse(respuesta)
+            let main = document.getElementById("content");
+            let count = 0;
+            let level = 2;
+            console.log(allProducts.length);
+
+            for (let i = 0; i < allProducts.length; i++, count++) {
+                if (i == 0) {
+                    main.innerHTML = `<div class="row">
+                    <button class="back-todos col-md-1" onClick="location.reload()" type="${typeProduct}">Volver atrás</button>
+                    <span class="col-md-9 center title">Todos los productos de ${typeProduct}</span>
+                    </div>
+                    `;
+                    main.innerHTML += `<div class="separator"></div>`;
+                    main.innerHTML += `<div class="group-cards row">`;
+                }
+                if (count > 5) {
+                    level++;
+                    count = 0;
+                    main.innerHTML += `<div class="group-cards row">`;
+                }
+                    main.children[level].innerHTML += `
+                    <div class="card-item col-md-5" data-aos="flip-left"
+                    type="${allProducts[i]["typePet"]}" id="${allProducts[i]["idProduct"]}"
+                    onclick="showDescription(event)">
+                    <img width="60%" isVisible="true inline" height="38%" src="${allProducts[i].urlimg}" alt="">
+                    <div class="separator" isVisible="true block"></div>
+                    <span class="card-tittle" isVisible="true block">${allProducts[i]['mark']}</span>
+                    <span class="card-description" isVisible="true block">${allProducts[i].weigth}</span>
+                    <span class="card-price" isVisible="true block">${'$' + allProducts[i].price}</span>
+                    <span class="card-nameitem" isVisible="true block">${allProducts[i].name}</span>
+                    <button class="card-btn-less" isVisible="true inline" type="button"
+                        onclick="removeItemsCard(event)">-</button>
+                    <span class="card-nitems" isVisible="true inline" id="${'card-ni-' + allProducts[i].idProduct}">1</span>
+                    <button class="card-btn-max" isVisible="true inline" type="button"
+                        onclick="addItemsCard(event)">+</button>
+                    <br isVisible="true inline">
+                    <button class="card-btn-add" isVisible="true inline" type="button"
+                        onclick="addItemsCarrito(event)">Agregar</button>
+                    <p class="description-card" isVisible="false">${allProducts[i].description}</p>
+                    </div>
+                    `;
+            
+
+            }
+
+        });
 }

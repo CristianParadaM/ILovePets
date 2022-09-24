@@ -15,6 +15,8 @@ public class ProductDto {
     private String typePet;
     private String weigth;
     private String price;
+    private String priceDes;
     private int quantyStock;
     private String mark;
+
 }

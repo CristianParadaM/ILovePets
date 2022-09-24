@@ -5,6 +5,7 @@ body {
     background-image: url('https://i.postimg.cc/vmsVtv1z/background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding-bottom: 1%;
 }
 
 #liveAlertPlaceholder {
@@ -29,6 +30,12 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
+    border-color: black;
+    border-bottom-width: 0.4vh;
+    border-top-width: 0vh;
+    border-left-width: 0vh;
+    border-right-width: 0vh;
+    border-style: solid;
 }
 
 #lupa {
@@ -39,9 +46,13 @@ body {
     display: none;
 }
 
-#logo {
+.logo {
     margin: 10px 0px 10px 10px;
     width: 10%;
+}
+
+.logo-img {
+    width: 120%;
 }
 
 #search-bar {
@@ -62,7 +73,7 @@ body {
     border: none;
 }
 
-#text-search {
+#textsearch {
     width: 100%;
     height: 4vh;
     background-color: transparent;
@@ -240,7 +251,7 @@ body {
     border-color: black;
     border-width: 0.35vh;
     border-style: solid;
-    width: 11%;
+    width: 14.65%;
     height: 23vw;
     -webkit-touch-callout: none;
     /* iOS Safari */
@@ -278,7 +289,12 @@ body {
 .card-price {
     font-size: 1.3vw;
     color: white;
-    display: block;
+    width: 50%;
+}
+
+.dashed{
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.775);
 }
 
 .card-nameitem {
@@ -667,6 +683,28 @@ body {
     position: relative;
 }
 
+.back-todos{
+    font-size: 1.5vw;
+    color: white;
+    border-radius: 20px;
+}
+
+.back-todos[type="peces"]{
+    background-color: #006A96;
+}
+.back-todos[type="perros"]{
+    background-color: #9A3737;
+}
+.back-todos[type="gatos"]{
+    background-color: #A07400;
+}
+.back-todos[type="aves"]{
+    background-color: #006D2A;
+}
+.back-todos[type="destacados"]{
+    background-color: rgb(255, 187, 0);
+}
+
 *[isVisible="false"] {
     display: none;
 }
@@ -677,4 +715,14 @@ body {
 
 *[isVisible="true inline"] {
     display: inline;
+}
+
+.center{
+    text-align: center;
+}
+
+.title{
+    font-size: 2vw;
+    font-weight: bold;
+    width: 90%;
 }

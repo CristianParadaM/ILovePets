@@ -15,7 +15,6 @@ document.getElementById("remp").addEventListener("click", (event) => {
 });
 
 function cancelButton(event) {
-    console.log(event)
     if(event.path[2].attributes[0].value == "search-panel"){
         event.path[2].attributes[1].value = "false";
     }else if( event.path[3].attributes[0].value == "search-panel"){
@@ -24,6 +23,8 @@ function cancelButton(event) {
         event.path[6].attributes[1].value = 'false';
     }
     document.getElementById('black-curtain').attributes[1].value = 'false';
+    document.getElementById("error-search").attributes[2].value = "false";
+    document.getElementById("content-search").attributes[3].value = "false";
 }
 
 for (let i = 0; i < document.getElementsByClassName("mascota-filter-btn").length; i++) {
@@ -32,6 +33,7 @@ for (let i = 0; i < document.getElementsByClassName("mascota-filter-btn").length
             case "cbperritos":
                 document.getElementById("mascota-filter-btn").src = "resource/btnfiltroperro.png";
                 document.getElementById("input-typepet").value = "Perro"
+                document.getElementById("input-typepet").text = "Perro"
                 break;
             case "cbgatitos":
                 document.getElementById("mascota-filter-btn").src = "resource/btnfiltrogato.png";
@@ -52,14 +54,36 @@ for (let i = 0; i < document.getElementsByClassName("mascota-filter-btn").length
 let inputFile = document.getElementById("input-file-add");
 
 inputFile.addEventListener("change", (event) => {
-
     if(event.path[0].files.length > 0){
         document.getElementById("img-add").src = URL.createObjectURL(event.path[0].files[0]);
     }
-
-    // fetch("http://localhost:8080/admin/guardar?img="+URL.createObjectURL(event.path[0].files[0]));
-    // .then(response => response.text())
-    // .then(respuesta =>{
-
-    // })
 });
+
+function searchId(){
+    let id = document.getElementById("input-id").value;
+    if (id.length > 0) {
+        fetch("/request?value="+id)
+            .then(response => response.text())
+            .then(respuesta => {
+            
+                if(respuesta.length == 0){
+                    document.getElementById("error-search").attributes[2].value = "true block";
+                    document.getElementById("content-search").attributes[3].value = "false";
+                }else{
+                    document.getElementById("error-search").attributes[2].value = "false";
+                    document.getElementById("content-search").attributes[3].value = "true block";
+                    let product = JSON.parse(respuesta);
+                    document.getElementById("input-name-search").value = product["name"];
+                    document.getElementById("input-mark-search").value = product["mark"];
+                    document.getElementById("input-typepet-search").value = product["typePet"];
+                    document.getElementById("search-desc-id").value = product["description"];
+                    document.getElementById("search-price-id").value = product["price"];
+                    document.getElementById("search-quanty-id").value = product["quantyStock"];
+
+                }
+    
+            });
+    }else{
+        alert("rellene el campo")
+    }
+}

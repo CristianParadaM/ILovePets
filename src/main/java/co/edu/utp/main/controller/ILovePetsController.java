@@ -1,80 +1,120 @@
 package co.edu.utp.main.controller;
 
-import java.util.Arrays;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
 import co.edu.utp.main.controller.dto.ProductDto;
+import co.edu.utp.main.model.Product;
+import co.edu.utp.main.model.Shop;
 
 @Controller
 public class ILovePetsController {
 
+    private Shop shop;
+
+    public ILovePetsController() {
+        shop = Shop.getInstance();
+    }
+
     @GetMapping("/admin")
-    public String goToAdmin() {
+    public String goToAdmin(Model model) {
+        model.addAttribute("idGenerated", 20221001);
         return "admin";
     }
 
     @GetMapping("/catalog")
-    public String goToCatalog(Model model){
-
-        String descgatos = "Descripción:\n\nLos Gatos más divertidos necesitan recargar energía con Purina® Felix®. ¡Dale una vida más sana a tu gato con los mejores sabores ¡Conoce más aquí. Felix Classics.Felix Fantastic.";
-        String descperros = "Descripción:\n\nLos Gatos más divertidos necesitan recargar energía con Purina® Felix®. ¡Dale una vida más sana a tu gato con los mejores sabores ¡Conoce más aquí. Felix Classics. Felix Fantastic.";
-        String descpeces = "Descripción:\n\nLos Gatos más divertidos necesitan recargar energía con Purina® Felix®. ¡Dale una vida más sana a tu gato con los mejores sabores ¡Conoce más aquí. Felix Classics. Felix Fantastic.";
-        String descaves = "Descripción:\n\nLos Gatos más divertidos necesitan recargar energía con Purina® Felix®. ¡Dale una vida más sana a tu gato con los mejores sabores ¡Conoce más aquí. Felix Classics. Felix Fantastic.";
-        
-
-        List<ProductDto> productsDestacados = Arrays.asList(
-            new ProductDto(1, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix"),
-            new ProductDto(2,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky"),
-            new ProductDto(3,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross"),
-            new ProductDto(4,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir"),
-            new ProductDto(5,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky")
-            );
-            
-        List<ProductDto> productsPerros = Arrays.asList(
-            new ProductDto(6,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky"),
-            new ProductDto(7,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky"),
-            new ProductDto(8,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky"),
-            new ProductDto(9,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky"),
-            new ProductDto(10,"resource/chunky.jpg", "Purina Chunky", descperros, "perro", "1.5gr", "10,500", 200, "Chunky")
-        );
-        List<ProductDto> productsGatos = Arrays.asList(
-            new ProductDto(11, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix"),
-            new ProductDto(12, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix"),
-            new ProductDto(13, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix"),
-            new ProductDto(14, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix"),
-            new ProductDto(15, "resource/cardimg.png","Purina Felix", descgatos, "gato", "85gr", "10,500", 200, "Felix")
-        );
-
-        List<ProductDto> productsAves = Arrays.asList(
-            new ProductDto(16,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir"),
-            new ProductDto(17,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir"),
-            new ProductDto(18,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir"),
-            new ProductDto(19,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir"),
-            new ProductDto(20,"resource/vivir.jpg", "Alimento Aves", descaves, "ave", "1.5gr", "10,500", 200, "Vivir")
-        );
-        List<ProductDto> productsPeces = Arrays.asList(
-            new ProductDto(21,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross"),
-            new ProductDto(22,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross"),
-            new ProductDto(23,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross"),
-            new ProductDto(24,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross"),
-            new ProductDto(25,"resource/incross.jpg", "Alimento Peces", descpeces, "pez", "1.5gr", "10,500", 200, "Incross")
-        );
-
-        model.addAttribute("productsDestacados", productsDestacados);
-        model.addAttribute("productsPerros", productsPerros);
-        model.addAttribute("productsGatos", productsGatos);
-        model.addAttribute("productsAves", productsAves);
-        model.addAttribute("productsPeces", productsPeces);
+    public String goToCatalog(Model model) {
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("productsDestacados", convertToDTO(shop.getFeatureProducts(0)));
+        model.addAttribute("productsPerros", convertToDTO(shop.getPetProducts(0, 'D')));
+        model.addAttribute("productsGatos", convertToDTO(shop.getPetProducts(0, 'C')));
+        model.addAttribute("productsAves", convertToDTO(shop.getPetProducts(0, 'B')));
+        model.addAttribute("productsPeces", convertToDTO(shop.getPetProducts(0, 'F')));
         return "index";
     }
 
     @GetMapping("/")
-    public String goToindex(Model model){
+    public String goToindex(Model model) {
         return goToCatalog(model);
+    }
+
+    @GetMapping("/search")
+    public String showSearchedProducts(@ModelAttribute Message textsearch, Model model) {
+        model.addAttribute("isDestacados", true);
+        model.addAttribute("path", "/resource/btnfiltromascotas.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Mejores coincidencias para: "+textsearch.getText());
+        System.out.println(shop.searchProducts(textsearch.getText()).size());
+        model.addAttribute("products", convertToDTO(shop.searchProducts(textsearch.getText())));
+        return "search";
+    }
+
+    @GetMapping("/allProductsDestacados")
+    public String showAllDestacados(Model model) {
+        model.addAttribute("isDestacados", true);
+        model.addAttribute("path", "/resource/btnfiltromascotas.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Todos los productos destacados");
+        model.addAttribute("products", convertToDTO(shop.getFeatureProducts(1)));
+        return "search";
+    }
+    
+    @GetMapping("/allProductsPerros")
+    public String showAllPerros(Model model) {
+        model.addAttribute("isDestacados", false);
+        model.addAttribute("path", "/resource/btnfiltroperro.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Todos los productos de perros");
+        model.addAttribute("products", convertToDTO(shop.getPetProducts(1, 'D')));
+        return "search";
+    }
+
+    @GetMapping("/allProductsGatos")
+    public String showAllGatos(Model model) {
+        model.addAttribute("isDestacados", false);
+        model.addAttribute("path", "/resource/btnfiltrogato.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Todos los productos de gatos");
+        model.addAttribute("products", convertToDTO(shop.getPetProducts(1, 'C')));
+        return "search";
+    }
+
+    @GetMapping("/allProductsAves")
+    public String showAllAves(Model model) {
+        model.addAttribute("isDestacados", false);
+        model.addAttribute("path", "/resource/btnfiltroave.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Todos los productos de aves");
+        model.addAttribute("products", convertToDTO(shop.getPetProducts(1, 'B')));
+        return "search";
+    }
+    @GetMapping("/allProductsPeces")
+    public String showAllPeces(Model model) {
+        model.addAttribute("isDestacados", false);
+        model.addAttribute("path", "/resource/btnfiltropez.png");
+        model.addAttribute("textSearch", new Message());
+        model.addAttribute("title", "Todos los productos de peces");
+        model.addAttribute("products", convertToDTO(shop.getPetProducts(1, 'F')));
+        return "search";
+    }
+
+    public List<ProductDto> convertToDTO(List<Product> products) {
+        ArrayList<ProductDto> productDtos = new ArrayList<>();
+        for (Product product : products) {
+            String typePet = product.getTypePet() == 'D' ? "perro"
+                    : product.getTypePet() == 'C' ? "gato" : product.getTypePet() == 'B' ? "ave" : "pez";
+            DecimalFormat formato = new DecimalFormat("#,###");
+            String priceFormat = formato.format(product.getPrice());
+            String priceDesFormat = formato.format(product.getPriceDes());
+            productDtos.add(new ProductDto(product.getIdProduct(), product.getUrlimg(), product.getName(),
+                    product.getDescription(), typePet, product.getWeigth(), priceFormat, priceDesFormat,
+                    product.getQuantyStock(), product.getMark().getName()));
+        }
+        return productDtos;
     }
 
 }
