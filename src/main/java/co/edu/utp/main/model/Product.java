@@ -1,9 +1,7 @@
 package co.edu.utp.main.model;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
 public class Product {
     private int idProduct;
@@ -17,6 +15,23 @@ public class Product {
     private int quantyStock;
     private Mark mark;
 
+    
+
+    public Product(int idProduct, String urlimg, String name, String description, char typePet, String weigth,
+            float price, float priceDes, int quantyStock, Mark mark) {
+        this.idProduct = idProduct;
+        this.urlimg = urlimg;
+        this.name = name;
+        this.description = description;
+        this.typePet = typePet;
+        this.weigth = weigth;
+        this.price = price;
+        this.priceDes = priceDes;
+        this.quantyStock = quantyStock;
+        this.mark = mark;
+    }
+
+    
     public int getIdProduct() {
         return idProduct;
     }

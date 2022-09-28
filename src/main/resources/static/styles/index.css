@@ -8,6 +8,14 @@ body {
     padding-bottom: 1%;
 }
 
+*[scroll="hidden"]{
+    overflow: hidden;
+}
+
+*[scroll="scroll"]{
+    overflow: scroll;
+}
+
 #liveAlertPlaceholder {
     display: inline;
     position: fixed;
@@ -477,7 +485,7 @@ body {
     font-size: 1.5vw;
 }
 
-#username-text {
+#usernametext {
     font-size: 1vw;
     border-radius: 10px;
     border-width: 3px;
@@ -490,7 +498,7 @@ body {
     font-size: 1.5vw;
 }
 
-#password-text {
+#passwordtext {
     font-size: 1vw;
     border-radius: 10px;
     border-width: 3px;
@@ -725,4 +733,114 @@ body {
     font-size: 2vw;
     font-weight: bold;
     width: 90%;
+}
+
+#black-curtain{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 200;
+}
+
+#panel-finish-purchase{
+    position: fixed;
+    width: 960px;
+    height: 850px;
+    top: 5%;
+    left: 25%;
+    background-color: white;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 0.3vh;
+    border-style: solid;
+    z-index: 201;
+    padding: 20px;
+}
+
+.finish-title{
+    display: block;
+    font-size: 2vw;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.section-title{
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.width-30{
+    width: 30%;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.input{
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+.label{
+    margin-top: 8px;
+    font-size: 1.4vw;
+    font-weight: bold;
+}
+
+.cancel{
+    margin-left: 15%;
+    margin-right: 7%;
+    border-radius: 10px;
+    color: white;
+    background-color: #FD6F6F;
+    height: 40px;
+}
+
+.success{
+    margin-left: 7%;
+    margin-right: 15%;
+    border-radius: 10px;
+    color: white;
+    background-color: #70AD47;
+}
+
+.success:hover{
+    box-shadow: 0 0 20px #70AD47;
+}
+
+.cancel:hover{
+    box-shadow: 0 0 20px #FD6F6F;
+}
+
+.bill-content{
+    height: 130px;
+    background-color: white;
+}
+
+#pay-method-user{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+.bill-content{
+    overflow: scroll;
+}
+
+.item-bill{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+}
+
+.noevents{
+    pointer-events: none;
+    border: none;
 }

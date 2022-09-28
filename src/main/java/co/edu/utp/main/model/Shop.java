@@ -3,15 +3,19 @@ package co.edu.utp.main.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Shop {
-
     private ArrayList<Product> products;
     private ArrayList<Sale> sales;
     private ArrayList<Client> clients;
     private static Shop shop = null;
+    private int idProductSerial;
+    private int idSaleSerial;
+    private int idMarkSerial;
+
+    public static final String USER_ADMIN = "crispo";
+    public static final String PASS_ADMIN = "2001";
 
     public static final Shop getInstance() {
         if (shop == null) {
@@ -25,59 +29,103 @@ public class Shop {
         sales = new ArrayList<>();
         clients = new ArrayList<>();
 
-        products.add(new Product(1, "resource/chunky.jpg", "Purina Chunky A", "Hola descripcion producto 1", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10001, "Chunky")));
+        this.idProductSerial = 20221001;
+        this.idSaleSerial = 20221;
+        this.idMarkSerial = 1;
 
-        products.add( new Product(2, "resource/cardimg.png", "Purina Felix Bebes", "Hola descripcion producto 2", 'C', "1.5Kg", 10500f, 0, 20,
-        new Mark(10002, "Felix")));
-        
-        products.add(new Product(3, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
-        12500f, 15500f, 20, new Mark(10003, "Vivir")));
+        products.add(new Product(idProductSerial++, "resource/chunky.jpg", "Purina Chunky A", "Hola descripcion producto 1", 'D',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Chunky")));
 
-        products.add(new Product(4, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F', "1.5Kg", 12500f, 0, 20,
-        new Mark(10004, "Incross")));
 
-        products.add(new Product(5, "resource/collar.jpg", "Collar Perros", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10005, "Colla")));
+        products.add(new Product(idProductSerial++, "resource/cardimg.png", "Purina Felix Bebes", "Hola descripcion producto 2", 'C',
+                "1.5Kg", 10500f, 0, 20,
+                new Mark(idMarkSerial++, "Felix")));
 
-        products.add( new Product(6, "resource/camagatos.jpg", "Camas gatos", "Hola descripcion producto 4", 'C', "1.5Kg", 12500f, 0, 20,
-        new Mark(10006, "Karulla")));
+        products.add(new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
+                12500f, 15500f, 20, new Mark(10003, "Vivir")));
 
-        products.add( new Product(8, "resource/tasas.jpg", "Tazas de Comida", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10007, "Doggies")));
+        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Incross")));
 
-        products.add(new Product(9, "resource/hueso.jpg", "Juguete Hueso", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10008, "Petys")));
+        products.add(new Product(idProductSerial++, "resource/collar.jpg", "Collar Perros", "Hola descripcion producto 4", 'D', "1.5Kg",
+                12500f, 0, 20,
+                new Mark(idMarkSerial++, "Colla")));
 
-        products.add( new Product(10, "resource/peine.jpg", "Peine Perro", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10009, "Exito")));
+        products.add(new Product(idProductSerial++, "resource/camagatos.jpg", "Camas gatos", "Hola descripcion producto 4", 'C',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Karulla")));
 
-        products.add( new Product(11, "resource/pelota.jpg", "Pelota Perro", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10009, "Exito")));
+        products.add(new Product(idProductSerial++, "resource/tasas.jpg", "Tazas de Comida", "Hola descripcion producto 4", 'D',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Doggies")));
 
-        products.add( new Product(12, "resource/pañales.jpg", "Pañales higienicos", "Hola descripcion producto 4", 'D', "1.5Kg", 12500f, 0, 20,
-        new Mark(10008, "Petys")));
+        products.add(new Product(idProductSerial++, "resource/hueso.jpg", "Juguete Hueso", "Hola descripcion producto 4", 'D', "1.5Kg",
+                12500f, 0, 20,
+                new Mark(idMarkSerial++, "Petys")));
 
-        products.add(new Product(13, "resource/arenera.jpg", "Arenera", "Hola descripcion producto 4", 'C', "1.5Kg", 12500f, 0, 20,
-        new Mark(10010, "Jumbo")));
+        products.add(new Product(idProductSerial++, "resource/peine.jpg", "Peine Perro", "Hola descripcion producto 4", 'D', "1.5Kg",
+                12500f, 0, 20,
+                new Mark(idMarkSerial++, "Exito")));
 
-        products.add(new Product(14, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
-        12500f, 0, 20, new Mark(10003, "Vivir")));
-                
-        products.add(new Product(15, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
-        12500f, 0, 20, new Mark(10003, "Vivir")));
-                
-        products.add(new Product(16, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F', "1.5Kg", 12500f, 0, 20,
-        new Mark(10004, "Incross")));
+        products.add(new Product(idProductSerial++, "resource/pelota.jpg", "Pelota Perro", "Hola descripcion producto 4", 'D', "1.5Kg",
+                12500f, 0, 20,
+                new Mark(idMarkSerial++, "Exito")));
 
-        products.add(new Product(17, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F', "1.5Kg", 12500f, 0, 20,
-        new Mark(10004, "Incross")));
+        products.add(new Product(idProductSerial++, "resource/pañales.jpg", "Pañales higienicos", "Hola descripcion producto 4", 'D',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Petys")));
 
-        clients.add(new Client(1, "Cristian", "Parada", LocalDate.of(2001, 9, 21), "Maria Fernanda Apto 627"));
+        products.add(new Product(idProductSerial++, "resource/arenera.jpg", "Arenera", "Hola descripcion producto 4", 'C', "1.5Kg",
+                12500f, 0, 20,
+                new Mark(idMarkSerial++, "Jumbo")));
 
-        sales.add(new Sale(1, Arrays.asList(1, 2, 3, 4, 11, 11, 11), LocalDateTime.now(), EnumTypeToPay.CASH, 1));
-        sales.add( new Sale(2, Arrays.asList(2, 2, 2, 3, 10, 10, 11), LocalDateTime.now(), EnumTypeToPay.CASH, 1));
-        sales.add(new Sale(3, Arrays.asList(3, 3, 3, 5), LocalDateTime.now(), EnumTypeToPay.CASH, 1));
+        products.add(
+                new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
+                        12500f, 0, 20, new Mark(idMarkSerial++, "Vivir")));
+
+        products.add(
+                new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
+                        12500f, 0, 20, new Mark(idMarkSerial++, "Vivir")));
+
+        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Incross")));
+
+        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
+                "1.5Kg", 12500f, 0, 20,
+                new Mark(idMarkSerial++, "Incross")));
+
+        clients.add(new Client(1002365941, "Cristian", "Parada", LocalDate.of(2001, 9, 21), "Maria Fernanda Apto 627"));
+
+        ArrayList<Integer> p = new ArrayList<>();
+        p.add(20221001);
+        p.add(20221002);
+        p.add(20221003);
+        p.add(20221004);
+        p.add(20221011);
+        p.add(20221011);
+        p.add(20221011);
+
+        ArrayList<Integer> p1 = new ArrayList<>();
+        p1.add(20221002);
+        p1.add(20221002);
+        p1.add(20221002);
+        p1.add(20221003);
+        p1.add(20221010);
+        p1.add(20221011);
+        p1.add(20221011);
+
+        ArrayList<Integer> p2 = new ArrayList<>();
+        p1.add(20221003);
+        p1.add(20221003);
+        p1.add(20221003);
+        p1.add(20221005);
+
+        sales.add(new Sale(idSaleSerial++, p, LocalDateTime.now(), EnumTypeToPay.CASH, 200000f,10000f,210000f, 1));
+        sales.add(new Sale(idSaleSerial++, p1, LocalDateTime.now(), EnumTypeToPay.CASH,200000f,10000f,210000f, 1));
+        sales.add(new Sale(idSaleSerial++, p2, LocalDateTime.now(), EnumTypeToPay.CASH,100000f,10000f,110000f, 1));
 
         products.sort((o1, o2) -> {
             return o1.getName().compareTo(o2.getName());
@@ -96,16 +144,59 @@ public class Shop {
         return productsSearch;
     }
 
+    public boolean modify(int id, Object[] changes) {
+        boolean b = false;
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getIdProduct() == id) {
+                for (int j = 0; j < changes.length; j++) {
+                    if (changes[j] != null) {
+                        b = true;
+                        switch (j) {
+                            case 0:
+                                products.get(i).setName((String) changes[j]);
+                                break;
+                            case 1:
+                                products.get(i).setUrlimg((String) changes[j]);
+                                break;
+                            case 2:
+                                products.get(i).setDescription((String) changes[j]);
+                                break;
+                            case 3:
+                                products.get(i).setTypePet((char) changes[j]);
+                                break;
+                            case 4:
+                                products.get(i).getMark().setName((String) changes[j]);
+                                break;
+                            case 5:
+                                products.get(i).setPrice((float) changes[j]);
+                                break;
+                            case 6:
+                                products.get(i).setQuantyStock((int) changes[j]);
+                                break;
+                            case 7:
+                                products.get(i).setPriceDes((float) changes[j]);
+                                break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        return b;
+    }
+
     public List<Product> getFeatureProducts(int option) {
         ArrayList<Object[]> products = new ArrayList<>();
         for (Sale sale : sales) {
             for (Integer idProduct : sale.getProducts()) {
                 Product product = getProductById(idProduct);
-                int index = isRepeated(product, products);
-                if (index == -1) {
-                    products.add(new Object[] { product, 1 });
-                } else {
-                    products.get(index)[1] = ((Integer) products.get(index)[1]) + 1;
+                if (product!=null) {
+                    int index = isRepeated(product, products);
+                    if (index == -1) {
+                        products.add(new Object[] { product, 1 });
+                    } else {
+                        products.get(index)[1] = ((Integer) products.get(index)[1]) + 1;
+                    }
                 }
             }
         }
@@ -183,9 +274,52 @@ public class Shop {
         return null;
     }
 
-    public void addProduct(Product product){
-        System.out.println(product);
-        this.products.add(product);
+    public boolean addProduct(Product productA) {
+        boolean status = true;
+        for (Product product : products) {
+            if (product.getIdProduct() == productA.getIdProduct()) {
+                status = false;
+            }
+        }
+        if (status) {
+            this.products.add(productA);
+        }
+        return status;
+    }
+
+    public boolean remove(int idFocus) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getIdProduct() == idFocus) {
+                products.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Client searchClientById(int id){
+        for (Client client : clients) {
+            if (client.getId() == id) {
+                return client;
+            }
+        }
+        return null;
+    }
+
+    public boolean addSale(Sale sale){
+        return sales.add(sale);
+    }
+
+    public int getIdProductSerial() {
+        return idProductSerial++;
+    }
+
+    public int getIdMarkSerial() {
+        return idMarkSerial++;
+    }
+
+    public int getIdSaleSerial() {
+        return idSaleSerial++;
     }
 
 }

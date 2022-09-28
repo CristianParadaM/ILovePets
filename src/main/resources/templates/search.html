@@ -14,23 +14,95 @@
     <script src="https://kit.fontawesome.com/f8b47d8cbe.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="load()">
+<body scroll="scroll" onload="load()">
+
+    <div id="notify" isVisible="false" th:notifytext="0"></div>
     <div id="liveAlertPlaceholder"></div>
     <div id="panel-login" isVisible="false" class="container">
-        <form action="/admin" method="get">
+        <form action="/login" method="post">
             <label class="row" id="title-login">Iniciar Sesion</label>
             <div class="separator"></div>
             <label class="row" id="username-login">Nombre de Usuario:</label>
-            <input class="row" type="text" id="username-text" placeholder="Digite su nombre de usuario" name="username"
+            <input class="row" type="text" id="usernametext" placeholder="Digite su nombre de usuario" name="username"
                 required>
             <label class="row" id="password-login">Contraseña:</label>
-            <input class="row" type="password" id="password-text" placeholder="Digite su contraseña" name="pass"
+            <input class="row" type="password" id="passwordtext" placeholder="Digite su contraseña" name="pass"
                 required>
             <a href="#" class="row" id="password-f">¿Olvidó su contraseña?</a>
             <button type="submit" id="sumbit-login">entrar</button>
         </form>
     </div>
-
+    <div id="black-curtain" isVisible="false"></div>
+    <div id="panel-finish-purchase" isVisible="false">
+        <span class="finish-title center">Finalizar Compra</span>
+        <form class="content" method="post" action="/sale">
+            <div class="section-title">Datos del Comprador</div>
+            <div class="separator"></div>
+            <div class="content-info-user row">
+                <div class="col">
+                    <label class="row label" for="name-user">Nombres:</label>
+                    <input class="row input" type="text" id="name-user" placeholder="Digite sus nombres" name="name" required>
+                    <label class="row label" for="id-user">Número de Documento:</label>
+                    <input class="row input" type="number" id="id-user" placeholder="Digite su numero de documento"
+                        name="id" required>
+                    <label class="row label" for="address-user">Dirección de domicilio:</label>
+                    <input class="row input" type="text" id="address-user"
+                        placeholder="Digite su dirección de domicilio" name="address" required>
+                </div>
+                <div class="col">
+                    <label class="row label" for="lastname-user">Apellidos:</label>
+                    <input class="row input" type="text" id="lastname-user" placeholder="Digite sus apellidos"
+                        name="lastname" required>
+                    <label class="row label" for="birthdate-user">Fecha de nacimiento:</label>
+                    <input class="row input" type="date" id="birthdate-user" name="birthdate" required>
+                    <label class="row label" for="pay-method-user">Metodo de pago:</label>
+                    <select class="row input" id="pay-method-user" name="paymethod">
+                        <option value="cash" selected>Efectivo</option>
+                        <option value="debit">Tarjeta debito</option>
+                        <option value="credit">Tarjeta Credito</option>
+                    </select>
+                </div>
+            </div>
+            <span class="section-title">Mi Carrito</span>
+            <div class="bill-section row">
+                <div class="bill-table">
+                    <div class="header row">
+                        <div class="separator"></div>
+                        <span class="input col center">Id</span>
+                        <span class="input col center">Producto</span>
+                        <span class="input col center">Cantidad</span>
+                        <span class="input col center">Precio Unitario</span>
+                        <span class="input col center">Precio Total</span>
+                        <div class="separator"></div>
+                    </div>
+                    <div class="bill-content row">
+                    </div>
+                    <div class="bill-footer row">
+                        <div class="separator"></div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col">
+                            <span class="input row">SubTotal(IVA incluido)</span>
+                            <span class="input row">Costos de envio</span>
+                            <span class="input row">Total</span>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="subtotal" id="subtotal-finish" class="input row center noevents">
+                            <input type="text" name="taxes" id="taxes-finish" class="input row center noevents">
+                            <input type="text" name="total" id="total-finish" class="input row center noevents">
+                        </div>
+                        <div class="separator"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <input id="products-json" name="products" type="hidden">
+                <button class="cancel col" type="reset" onclick="cancelFinish()">Cancelar</button>
+                <button class="success col" type="submit">Finalizar</button>
+            </div>
+        </form>
+    </div>
     <div id="panel-carrito" isVisible="false">
         <div id="no-items-carrito" isVisible="tru" class="center">
             <i id="carrito-icon" class="fas fa-shopping-cart"></i>
@@ -51,7 +123,7 @@
                         <span id="total-text-carrito" class="col">TOTAL:</span>
                         <span id="total-value-carrito" class="col">$0,00</span>
                     </div>
-                    <button id="finish-purchase" state="disabled">Finalizar compra</button>
+                    <button id="finish-purchase" state="disabled" onclick="finishPurchase(event)">Finalizar compra</button>
                 </div>
             </div>
         </div>

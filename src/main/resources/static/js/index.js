@@ -4,6 +4,18 @@ let sectionGat = document.getElementById("section-gatos");
 let sectionAv = document.getElementById("section-aves");
 let sectionPec = document.getElementById("section-peces");
 
+const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+function alertUser(message, type) {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
+    alertPlaceholder.append(wrapper)
+}
+
 function chargeTransform() {
     for (let index = 0; index < sectionDes.children[1].children.length; index++) {
         if (sectionDes.children[1].children[index] != undefined) {
@@ -110,46 +122,33 @@ document.getElementById("carrito-compras").addEventListener("click", () => {
     }
 });
 
-document.getElementById("username-text").addEventListener("input", (event) => {
+document.getElementById("usernametext").addEventListener("input", (event) => {
     let data = new String(event.data);
-    let text = document.getElementById("username-text").value;
+    let text = document.getElementById("usernametext").value;
     const regex = /[A-Za-z0-9]+/g;
     if (!data.match(regex)) {
-        document.getElementById("username-text").value = text.substring(0, text.length - 1);
+        document.getElementById("usernametext").value = text.substring(0, text.length - 1);
         alert("caracteres invalidos");
     }
     if (text.length == 40) {
-        document.getElementById("username-text").value = text.substring(0, text.length - 1);
+        document.getElementById("usernametext").value = text.substring(0, text.length - 1);
         alert("maximo 40 caracteres");
     }
 });
 
-document.getElementById("password-text").addEventListener("input", (event) => {
+document.getElementById("passwordtext").addEventListener("input", (event) => {
     let data = new String(event.data);
-    let text = document.getElementById("password-text").value;
+    let text = document.getElementById("passwordtext").value;
     const regex = /[A-Za-z0-9]+/g;
     if (!data.match(regex)) {
-        document.getElementById("password-text").value = text.substring(0, text.length - 1);
+        document.getElementById("passwordtext").value = text.substring(0, text.length - 1);
         alert("caracteres invalidos");
     }
     if (text.length == 40) {
-        document.getElementById("password-text").value = text.substring(0, text.length - 1);
+        document.getElementById("passwordtext").value = text.substring(0, text.length - 1);
         alert("maximo 40 caracteres");
     }
 });
-
-function alert(message, type) {
-    const wrapper = document.createElement('div')
-    wrapper.innerHTML = [
-        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div>${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-    ].join('')
-    alertPlaceholder.append(wrapper)
-}
-
-const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
 
 function addItemsCard(event) {
     let number = event.path[1].children[7];
@@ -191,7 +190,7 @@ function addItemsCarrito(event) {
         document.getElementById("center-carrito").innerHTML += `
         <div id="item-carrito-${event.path[1].attributes[3].value}" class="row item-carrito">
             <div class="col">
-                <img src="${event.path[1].children[0].attributes[3].value}" class="img-items-carrito">
+                <img src="${event.path[1].children[0].attributes.src.value}" class="img-items-carrito">
             </div>
             <div class="col">
                 <span class="row title-items-carrito">${event.path[1].children[5].textContent}</span>
@@ -205,7 +204,7 @@ function addItemsCarrito(event) {
         `;
     }
 
-    alert(`Se han agregado al carrito ${event.path[1].children[7].textContent} articulo(s).`, 'success');
+    alertUser(`Se han agregado al carrito ${event.path[1].children[7].textContent} articulo(s).`, 'success');
 
     function isExist(id) {
         let children = document.getElementById("center-carrito").children;
@@ -262,7 +261,6 @@ function showAllProducts(typeProduct) {
             let main = document.getElementById("content");
             let count = 0;
             let level = 2;
-            console.log(allProducts.length);
 
             for (let i = 0; i < allProducts.length; i++, count++) {
                 if (i == 0) {
@@ -306,3 +304,83 @@ function showAllProducts(typeProduct) {
 
         });
 }
+
+function finishPurchase() {
+    document.getElementsByTagName("body").item(0).attributes.scroll.value = "hidden";
+    document.getElementById("black-curtain").attributes[1].value = "true block";
+    document.getElementById("panel-finish-purchase").attributes[1].value = "true block";
+
+    let items = document.getElementsByClassName("item-carrito");
+    let billcontent = document.getElementsByClassName("bill-content").item(0);
+    let subtotalBill = 0;
+    billcontent.innerHTML = "";
+    let  products = "{";
+    for (let i = 0; i < items.length; i++) {
+
+        let idProduct = items.item(i).attributes.id.value.split("-")[2];
+        let nameProduct = items.item(i).children[1].children[0].textContent;
+        let quanty = items.item(i).children[2].textContent.replace("x","");
+        let price = items.item(i).children[1].children[1].textContent.replace("$","").replace(".","");
+        let priceTotal = parseInt(price, 10) * quanty;
+        subtotalBill+=priceTotal;
+        
+        products+=`${idProduct}:${quanty},`;
+
+        billcontent.innerHTML += `
+        <div class="product-bill row">
+            <input class="col input center item-bill noevents" value="${idProduct}" name="idP">
+            <span class="col input center item-bill">${nameProduct}</span>
+            <input class="col input center item-bill noevents" value="${quanty}">
+            <span class="col input center item-bill">${numeral(price).format('$0,0')}</span>
+            <span class="col input center item-bill">${numeral(priceTotal).format('$0,0')}</span>
+        </div> 
+        `;
+
+    }
+
+    products=products.substring(0,products.length-1);
+    products+="}";
+
+    
+    document.getElementById("subtotal-finish").value = numeral(subtotalBill).format('$0,0');
+    document.getElementById("taxes-finish").value = numeral(0).format('$0,0');
+    document.getElementById("total-finish").value = numeral(subtotalBill).format('$0,0');
+    document.getElementById("products-json").value = products;
+    
+}
+
+function notify() {
+    let i = document.getElementById("notify").attributes.notifytext.value;
+    if (i != "0") {
+        if (i == "-1") {
+            alert("Usuario o contraseña invalidos");
+            location.href = "/catalog"
+        }else if(i == -2){
+            alert("Error al realizar la compra");
+            location.href = "/catalog"
+        }else{
+            alert("Compra realizada con exito.. Te enviaremos pronto tu(s) producto(s) :)");
+            location.href = "/catalog"
+        }
+    }
+}
+
+function cancelFinish() {
+    document.getElementsByTagName("body").item(0).attributes.scroll.value = "scroll";
+    document.getElementById("black-curtain").attributes.isVisible.value = "false";
+    document.getElementById("panel-finish-purchase").attributes.isVisible.value = "false";
+}
+
+document.getElementById("address-user").addEventListener("input", () => {
+    if (document.getElementById("address-user").value.length>0) {
+        let subtotal = document.getElementById("subtotal-finish").value.replace("$","").replace(",","");
+        document.getElementById("taxes-finish").value = numeral(2500).format('$0,0');
+        document.getElementById("total-finish").value = numeral(parseInt(subtotal,10)+2500).format('$0,0');
+    }else{
+        let subtotal = document.getElementById("subtotal-finish").value.replace("$","").replace(",","");
+        document.getElementById("taxes-finish").value = numeral(0).format('$0,0');
+        document.getElementById("total-finish").value = numeral(parseInt(subtotal,10)).format('$0,0');
+    }
+});
+
+notify();

@@ -13,6 +13,17 @@ body {
     display: none;
 }
 
+.width-100px{
+    width: 100px;
+}
+
+*[isDisabled="true"]{
+   pointer-events: none;
+}
+*[isDisabled="false"]{
+   pointer-events: all;
+}
+
 #header {
     display: flex;
     background-color: rgb(0, 176, 240, 0.9);
@@ -174,17 +185,25 @@ body {
     display: block;
     text-align: center;
 }
-.add-panel-label{
+.add-panel-label, .search-panel-label{
     display: block;
     font-size: 1.5vw;
 }
 
-.add-panel-input{
+.add-panel-input, .search-panel-input{
     font-size: 1.3vw;
     border-color: black;
     border-width: 0.4vh;
     border-style: solid;
     border-radius: 10px;
+}
+
+*[scroll="hidden"]{
+    overflow: hidden;
+}
+
+*[scroll="scroll"]{
+    overflow: scroll;
 }
 
 .add-panel-input:hover{
@@ -195,13 +214,13 @@ body {
     color: yellow;
 }
 
-.add-panel-img{
+.add-panel-img ,.search-panel-img{
     opacity: 0;
     height: 0px;
     width: 0px;
 }
 
-.add-panel-containerbtnimg{
+.add-panel-containerbtnimg, .search-panel-containerbtnimg{
     display: inline-flex;
     text-align: center;
     width: 11vw;
@@ -211,11 +230,11 @@ body {
     border-style: solid;
 }
 
-.add-panel-containerbtnimg:hover{
+.add-panel-containerbtnimg:hover,.search-panel-containerbtnimg:hover{
     box-shadow: 0 0 40px orange;
 }
 
-.add-panel-loadimg{
+.add-panel-loadimg,.search-panel-loadimg{
     display: block;
     text-align: center;
     font-size: 1vw;
@@ -223,7 +242,7 @@ body {
     text-decoration: underline;
 }
 
-.add-panel-loadimg:hover{
+.add-panel-loadimg:hover ,.search-panel-loadimg:hover{
     color: orange;
     text-shadow: 0 0 10px orange;
 }

@@ -9,16 +9,16 @@ function load() {
         let card = document.getElementsByClassName("card-item").item(i);
         productsAll.push(card);
         switch (card.attributes.type.value) {
-            case "perro":
+            case "Perro":
                 productsDogs.push(card);
                 break;
-            case "ave":
+            case "Ave":
                 productsBirds.push(card);
                 break;
-            case "gato":
+            case "Gato":
                 productsCats.push(card);
                 break;
-            case "pez":
+            case "Pez":
                 productsFishes.push(card);
                 break;
         }

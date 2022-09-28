@@ -22,13 +22,15 @@ public class ILovePetsController {
 
     @GetMapping("/admin")
     public String goToAdmin(Model model) {
-        model.addAttribute("idGenerated", 20221001);
+        model.addAttribute("idGenerated", shop.getIdProductSerial());
+        model.addAttribute("notify", 0);
         return "admin";
     }
 
     @GetMapping("/catalog")
     public String goToCatalog(Model model) {
         model.addAttribute("textSearch", new Message());
+        model.addAttribute("notify", 0);
         model.addAttribute("productsDestacados", convertToDTO(shop.getFeatureProducts(0)));
         model.addAttribute("productsPerros", convertToDTO(shop.getPetProducts(0, 'D')));
         model.addAttribute("productsGatos", convertToDTO(shop.getPetProducts(0, 'C')));
@@ -105,14 +107,16 @@ public class ILovePetsController {
     public List<ProductDto> convertToDTO(List<Product> products) {
         ArrayList<ProductDto> productDtos = new ArrayList<>();
         for (Product product : products) {
-            String typePet = product.getTypePet() == 'D' ? "perro"
-                    : product.getTypePet() == 'C' ? "gato" : product.getTypePet() == 'B' ? "ave" : "pez";
-            DecimalFormat formato = new DecimalFormat("#,###");
-            String priceFormat = formato.format(product.getPrice());
-            String priceDesFormat = formato.format(product.getPriceDes());
-            productDtos.add(new ProductDto(product.getIdProduct(), product.getUrlimg(), product.getName(),
-                    product.getDescription(), typePet, product.getWeigth(), priceFormat, priceDesFormat,
-                    product.getQuantyStock(), product.getMark().getName()));
+            if (product != null) {
+                String typePet = product.getTypePet() == 'D' ? "Perro"
+                        : product.getTypePet() == 'C' ? "Gato" : product.getTypePet() == 'B' ? "Ave" : "Pez";
+                DecimalFormat formato = new DecimalFormat("#,###");
+                String priceFormat = formato.format(product.getPrice());
+                String priceDesFormat = formato.format(product.getPriceDes());
+                productDtos.add(new ProductDto(product.getIdProduct(), product.getUrlimg(), product.getName(),
+                        product.getDescription(), typePet, product.getWeigth(), priceFormat, priceDesFormat,
+                        product.getQuantyStock(), product.getMark().getName()));
+            }
         }
         return productDtos;
     }
