@@ -1,12 +1,21 @@
 package co.edu.utp.main.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
 public class Message {
     private String text;
+
+    public Message(){}
+
+    public Message(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    
 }

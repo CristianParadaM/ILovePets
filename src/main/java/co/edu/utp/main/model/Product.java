@@ -2,7 +2,6 @@ package co.edu.utp.main.model;
 
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 public class Product {
 
     private int idProduct;
