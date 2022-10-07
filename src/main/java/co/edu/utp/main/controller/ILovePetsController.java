@@ -50,7 +50,6 @@ public class ILovePetsController {
         model.addAttribute("path", "/resource/btnfiltromascotas.png");
         model.addAttribute("textSearch", new Message());
         model.addAttribute("title", "Mejores coincidencias para: "+textsearch.getText());
-        System.out.println(shop.searchProducts(textsearch.getText()).size());
         model.addAttribute("products", convertToDTO(shop.searchProducts(textsearch.getText())));
         return "search";
     }

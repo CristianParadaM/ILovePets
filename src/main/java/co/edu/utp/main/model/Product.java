@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class Product {
+
     private int idProduct;
     private String urlimg;
     private String name;
@@ -14,8 +15,6 @@ public class Product {
     private float priceDes;
     private int quantyStock;
     private Mark mark;
-
-    
 
     public Product(int idProduct, String urlimg, String name, String description, char typePet, String weigth,
             float price, float priceDes, int quantyStock, Mark mark) {
