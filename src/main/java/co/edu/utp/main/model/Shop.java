@@ -33,69 +33,132 @@ public class Shop {
         this.idSaleSerial = 20221;
         this.idMarkSerial = 1;
 
-        products.add(new Product(idProductSerial++, "resource/chunky.jpg", "Purina Chunky A", "Hola descripcion producto 1", 'D',
+        products.add(new Product(idProductSerial++, "resource/chunky.jpg", "Purina Chunky A", 
+    "Ingredientes:\n\nArroz, salmón, cordero, harina de salmón, salvado de trigo, aceite de pollo, hidrolizado de hígado de pollo, semilla de lino, cloruro de sodio, carbonato de calcio, fosfato dicálcico, cloruro de potasio, manano -oligosacáridos de la (no-GM) saccharomyces cerevisiae,  cloruro de colina, hierro quelado, sulfato ferroso, hidroxicloruro de zinc, zinc quelado, beta-glucanos, selenio quelado, cobre básico cloruro, cobre quelado, yodato de calcio, hidroxicloruro de manganeso, manganeso quelado, selenito de sodio, vitamina E tocoferol acetato, vitamina B3 niacinamida, vitamina B5, vitamina A retinol, vitamina H biotina, vitamina B2 riboflavina, vitamina K3 menadiona, vitamina B12 cianocobalamina, vitamina B1 tiamina, vitamina B6 piridoxina, vitamina D3 colecalciferol, vitamina B9 ácido fólico, sales de ácido propiónico, tocoferoles, aceite de romero, ácido cítrico."
+                , 'D',
                 "1.5Kg", 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Chunky")));
 
 
-        products.add(new Product(idProductSerial++, "resource/cardimg.png", "Purina Felix Bebes", "Hola descripcion producto 2", 'C',
+        products.add(new Product(idProductSerial++, "resource/cardimg.png", "Purina Felix Bebes", 
+        "Ingredientes:\n\nArroz, salmón, cordero, harina de salmón, salvado de trigo, aceite de pollo, hidrolizado de hígado de pollo, semilla de lino, cloruro de sodio, carbonato de calcio, fosfato dicálcico, cloruro de potasio, manano -oligosacáridos de la (no-GM) saccharomyces cerevisiae,  cloruro de colina, hierro quelado, sulfato ferroso, hidroxicloruro de zinc, zinc quelado, beta-glucanos, selenio quelado, cobre básico cloruro, cobre quelado, yodato de calcio, hidroxicloruro de manganeso, manganeso quelado, selenito de sodio, vitamina E tocoferol acetato, vitamina B3 niacinamida, vitamina B5, vitamina A retinol, vitamina H biotina, vitamina B2 riboflavina, vitamina K3 menadiona, vitamina B12 cianocobalamina, vitamina B1 tiamina, vitamina B6 piridoxina, vitamina D3 colecalciferol, vitamina B9 ácido fólico, sales de ácido propiónico, tocoferoles, aceite de romero, ácido cítrico."
+                , 'C',
                 "1.5Kg", 10500f, 0, 20,
                 new Mark(idMarkSerial++, "Felix")));
 
-        products.add(new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
+        products.add(new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", 
+        "Ingredientes:\n\nArroz, salmón, cordero, harina de salmón, salvado de trigo, aceite de pollo, hidrolizado de hígado de pollo, semilla de lino, cloruro de sodio, carbonato de calcio, fosfato dicálcico, cloruro de potasio, manano -oligosacáridos de la (no-GM) saccharomyces cerevisiae,  cloruro de colina, hierro quelado, sulfato ferroso, hidroxicloruro de zinc, zinc quelado, beta-glucanos, selenio quelado, cobre básico cloruro, cobre quelado, yodato de calcio, hidroxicloruro de manganeso, manganeso quelado, selenito de sodio, vitamina E tocoferol acetato, vitamina B3 niacinamida, vitamina B5, vitamina A retinol, vitamina H biotina, vitamina B2 riboflavina, vitamina K3 menadiona, vitamina B12 cianocobalamina, vitamina B1 tiamina, vitamina B6 piridoxina, vitamina D3 colecalciferol, vitamina B9 ácido fólico, sales de ácido propiónico, tocoferoles, aceite de romero, ácido cítrico."
+        , 'B', "1.5Kg",
                 12500f, 15500f, 20, new Mark(10003, "Vivir")));
 
-        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
+        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", 
+        "Ingredientes:\n\nArroz, salmón, cordero, harina de salmón, salvado de trigo, aceite de pollo, hidrolizado de hígado de pollo, semilla de lino, cloruro de sodio, carbonato de calcio, fosfato dicálcico, cloruro de potasio, manano -oligosacáridos de la (no-GM) saccharomyces cerevisiae,  cloruro de colina, hierro quelado, sulfato ferroso, hidroxicloruro de zinc, zinc quelado, beta-glucanos, selenio quelado, cobre básico cloruro, cobre quelado, yodato de calcio, hidroxicloruro de manganeso, manganeso quelado, selenito de sodio, vitamina E tocoferol acetato, vitamina B3 niacinamida, vitamina B5, vitamina A retinol, vitamina H biotina, vitamina B2 riboflavina, vitamina K3 menadiona, vitamina B12 cianocobalamina, vitamina B1 tiamina, vitamina B6 piridoxina, vitamina D3 colecalciferol, vitamina B9 ácido fólico, sales de ácido propiónico, tocoferoles, aceite de romero, ácido cítrico."
+        , 'F',
                 "1.5Kg", 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Incross")));
 
-        products.add(new Product(idProductSerial++, "resource/collar.jpg", "Collar Perros", "Hola descripcion producto 4", 'D', "1.5Kg",
+        products.add(new Product(idProductSerial++, "resource/collar.jpg", "Collar Perros", 
+        "Consiente a tu mascota con collares cómodos y prácticos. \n¡Visita nuestra tienda online! \n¡Nueva colección inspirada en las regiones de Colombia.! \n¡Con la sabrosura del Caribe! Pelota antisarro. \n\nPlaca para perro gratis. \nDiseños auténticos. \nExclusividad"
+        , 'D', "1.5Kg",
                 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Colla")));
 
-        products.add(new Product(idProductSerial++, "resource/camagatos.jpg", "Camas gatos", "Hola descripcion producto 4", 'C',
+        products.add(new Product(idProductSerial++, "resource/camagatos.jpg", "Camas gatos", "Ofertas en Camas gatos Y Una Gran Variedad De Productos y Marcas! Ingresa Hoy.\nLo Que Buscas En Camas Gatos lo Encuentras Aquí. \nIngresa Y Descubre Los Descuentos!", 'C',
                 "1.5Kg", 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Karulla")));
 
-        products.add(new Product(idProductSerial++, "resource/tasas.jpg", "Tazas de Comida", "Hola descripcion producto 4", 'D',
+        products.add(new Product(idProductSerial++, "resource/tasas.jpg", "Tazas de Comida", "Decidir cuánta alimentación del perro es adecuada, con qué frecuencia y qué tipo de alimento, son decisiones de gran importancia.", 'D',
                 "1.5Kg", 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Doggies")));
 
-        products.add(new Product(idProductSerial++, "resource/hueso.jpg", "Juguete Hueso", "Hola descripcion producto 4", 'D', "1.5Kg",
+        products.add(new Product(idProductSerial++, "resource/hueso.jpg", "Juguete Hueso", "Lo Que Buscas En Juguetes Para Perros lo Encuentras Aquí. Ingresa Y Descubre Los Descuentos! Devoluciones Gratis. Envío gratis desde $70000. Tiendas Oficiales. Compra Protegida. Hasta 12 cuotas s/interés.\nMarcas: Provipets, Puppis, Kanú.", 'D', "1.5Kg",
                 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Petys")));
 
-        products.add(new Product(idProductSerial++, "resource/peine.jpg", "Peine Perro", "Hola descripcion producto 4", 'D', "1.5Kg",
+        products.add(new Product(idProductSerial++, "resource/peine.jpg", "Peine Perro", "Lo Que Buscas En Juguetes Para Perros lo Encuentras Aquí. Ingresa Y Descubre Los Descuentos! Devoluciones Gratis. Envío gratis desde $70000. Tiendas Oficiales. Compra Protegida. Hasta 12 cuotas s/interés.\nMarcas: Provipets, Puppis, Kanú.", 'D', "1.5Kg",
                 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Exito")));
 
-        products.add(new Product(idProductSerial++, "resource/pelota.jpg", "Pelota Perro", "Hola descripcion producto 4", 'D', "1.5Kg",
+        products.add(new Product(idProductSerial++, "resource/pelota.jpg", "Pelota Perro", "Lo Que Buscas En Juguetes Para Perros lo Encuentras Aquí. Ingresa Y Descubre Los Descuentos! Devoluciones Gratis. Envío gratis desde $70000. Tiendas Oficiales. Compra Protegida. Hasta 12 cuotas s/interés.\nMarcas: Provipets, Puppis, Kanú.", 'D', "1.5Kg",
                 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Exito")));
 
-        products.add(new Product(idProductSerial++, "resource/pañales.jpg", "Pañales higienicos", "Hola descripcion producto 4", 'D',
+        products.add(new Product(idProductSerial++, "resource/pañales.jpg", "Pañales higienicos", "Con los Tapetes Absorbentes Petys, tu mascota puede hacer sus necesidades en casa, mientras mantienes el piso de tu hogar completamente limpio", 'D',
                 "1.5Kg", 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Petys")));
 
-        products.add(new Product(idProductSerial++, "resource/arenera.jpg", "Arenera", "Hola descripcion producto 4", 'C', "1.5Kg",
+        products.add(new Product(idProductSerial++, "resource/arenera.jpg", "Arenera", "Arena y Areneras para Gato con ofertas y descuento compra online en Linio Colombia. Encuentra la mayor variedad de Arena y Areneras para Gato en un sólo lugar", 'C', "1.5Kg",
                 12500f, 0, 20,
                 new Mark(idMarkSerial++, "Jumbo")));
 
-        products.add(
-                new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
-                        12500f, 0, 20, new Mark(idMarkSerial++, "Vivir")));
+        //----
+        products.add(new Product(idProductSerial++, "resource/acuario.png", "Acuario", 
+        "Moderno acuario para tus peces, donde podran nadar libremente en un moderno ambiente acuatico"
+        , 'F', "20Kg",
+                1500000f, 0, 2,
+                new Mark(idMarkSerial++, "Acuarium")));
 
-        products.add(
-                new Product(idProductSerial++, "/resource/vivir.jpg", "Alimento aves", "Hola descripcion producto 3", 'B', "1.5Kg",
-                        12500f, 0, 20, new Mark(idMarkSerial++, "Vivir")));
+        products.add(new Product(idProductSerial++, "resource/ancla.png", "Accesorio ancla", 
+        "Decora tu acuario con este increible accesorio, dale vida al mundo acuatico de tus peces!!"
+        , 'F', "1Kg",
+                20000f, 25000, 6,
+                new Mark(idMarkSerial++, "FisheShop")));
 
-        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
-                "1.5Kg", 12500f, 0, 20,
-                new Mark(idMarkSerial++, "Incross")));
+        products.add(new Product(idProductSerial++, "resource/bebedero.png", "Bebedero aves", 
+        "Perfecto e ideal bebedero para tus aves, donde podras alimentarlos y darles de beber facilmente, compralo ya!"
+        , 'B', "2Kg",
+                30000f, 0f, 20,
+                new Mark(idMarkSerial++, "Vivir")));
 
-        products.add(new Product(idProductSerial++, "resource/incross.jpg", "Alimento Peces", "Hola descripcion producto 4", 'F',
-                "1.5Kg", 12500f, 0, 20,
-                new Mark(idMarkSerial++, "Incross")));
+        products.add(new Product(idProductSerial++, "resource/columpio.png", "Columpio Aves", 
+        "Dale motivos a tus aves para que no se aburran en la jaula, dales un columpio donde puedan divertirse!"
+        , 'B', "0.5Kg",
+                10000f, 12000f, 2,
+                new Mark(idMarkSerial++, "BirdsAll")));
+
+        products.add(new Product(idProductSerial++, "resource/comedero.png", "Comedero Aves", 
+        "Un lugar para darles la comida a tus aves, simple y sencillo pero practico, compralo ya! "
+        , 'B', "1Kg",
+                2000f, 5000f, 2,
+                new Mark(idMarkSerial++, "ILoveBirds")));
+
+        products.add(new Product(idProductSerial++, "resource/correagato.png", "Correas Gatos", 
+        "Consiente a tu mascota con collares cómodos y prácticos. ¡Visita nuestra tienda online! ¡Nueva colección inspirada en las regiones de Colombia.! ¡Con la sabrosura del Caribe! Pelota antisarro. Placa para gatos gratis. Diseños auténticos. Exclusividad"
+        , 'C', "0.5Kg",
+                10000f, 12000f, 22,
+                new Mark(idMarkSerial++, "ILoveCats")));
+
+        products.add(new Product(idProductSerial++, "resource/filtrado.png", "Filtro Acuario", 
+        "Novedoso filtro para la pecera o acuario que no puede faltar en los accesorios para tus mascotas submarinas!"
+        , 'F', "1Kg",
+                35000f, 40000f, 2,
+                new Mark(idMarkSerial++, "Acuarium")));
+
+        products.add(new Product(idProductSerial++, "resource/gimnasiogatos.png", "Gimnasio Gatos", 
+        "Perfecto gimnasio para tus gatos, donde podran divertirse de la mejor manera, nunca se aburriran de saltar y escalar en este novedoso sistema para tus mascotas"
+        , 'C', "3Kg",
+                100000f, 150000, 2,
+                new Mark(idMarkSerial++, "Exito")));
+
+        products.add(new Product(idProductSerial++, "resource/jaula.png", "Jaula aves", 
+        "Ideal jaula para tus aves, amplias y comodas donde podras armar un hogar perfecto para tus aves voladoras"
+        , 'B', "2Kg",
+                30500f, 32000f, 2,
+                new Mark(idMarkSerial++, "ILoveBirds")));
+
+        products.add(new Product(idProductSerial++, "resource/lampara.png", "Lampara Sumergible", 
+        "Ilumina tu pecera o acuario con esta novedosa lampara LED que posee multiples colores para darle una vida mas colorida a tus mascotas"
+        , 'F', "1Kg",
+                50000f, 60000f, 5,
+                new Mark(idMarkSerial++, "ILoveFishes")));
+
+        products.add(new Product(idProductSerial++, "resource/malla.png", "Malla Transparente", 
+        "Manten seguros a tus gatos con estas mallas transparentes ideal poner en balcones y ventanas, no esperes mas llevalo ya!"
+        , 'C', "1.5Kg",
+                15000f, 0, 2,
+                new Mark(idMarkSerial++, "Cats Colombia")));
+
+
 
         clients.add(new Client(1002365941, "Cristian", "Parada", LocalDate.of(2001, 9, 21), "Maria Fernanda Apto 627"));
 
